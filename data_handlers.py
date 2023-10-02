@@ -20,7 +20,7 @@ def fetchRecentURLs(topic, metaphor_api_key):
 
 def fetchRawContentsForIds(ids, metaphor_api_key):
     metaphor = Metaphor(metaphor_api_key)
-    response = metaphor.get_content(ids)
+    response = metaphor.get_contents(ids)
 
     # TODO(krgv): Add error handling for response
 
@@ -28,14 +28,10 @@ def fetchRawContentsForIds(ids, metaphor_api_key):
 
 def processRecentURLsForTopic(topic, metaphor_api_key):
     response = fetchRecentURLs(topic, metaphor_api_key)
-    ids = [item['id'] for item in response['results']]
+    ids = [item.id for item in response.results]
     contents = fetchRawContentsForIds(ids, metaphor_api_key)
     return contents
 
 def createDigest(topic, metaphor_api_key):
-    contents = processRecentURLsForTopic(topic, metaphor_api_key)
-
-    contents = [content['content'] for content in contents]
-
-
-    return contents
+    response = processRecentURLsForTopic(topic, metaphor_api_key)
+    return response.contents

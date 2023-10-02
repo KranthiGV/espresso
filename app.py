@@ -1,4 +1,5 @@
 import streamlit as st
+from data_handlers import createDigest
 
 st.title("☕️ Espresso | Daily digest of your favorite topics")
 
@@ -17,5 +18,7 @@ if submit_button:
 
     tabs = st.tabs(topics)
 
-    for tab in tabs:
-        tab.write("This is the " + tab.label + " tab.")
+    for idx, tab in enumerate(tabs):
+        with tab:
+            print(metaphor_api_key)
+            st.write(createDigest(topics[idx], metaphor_api_key))

@@ -1,0 +1,3 @@
+metaphor-python
+streamlit
+openai
