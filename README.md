@@ -1,4 +1,5 @@
-# Espresso - Daily Digest App
+# ☕️ Espresso - Daily Digest App
+[Live Demo](https://digest.streamlit.app/)
 
 Espresso is an application made to provide a daily digest of your favorite topics. This app uses the power of OpenAI and Metaphor APIs to fetch, process, and summarize the latest information on a list of topics provided by the user.
 
@@ -13,6 +14,15 @@ Espresso is an application made to provide a daily digest of your favorite topic
 
 - `app.py`: Main UI entry point. Handles the user inputs for API keys and topic of interest.
 - `data_handlers.py`: Functions to get recent URLs through the Metaphor API, fetch the raw contents of the URLs and uses OpenAI's GPT-4 for summarizing.
+
+## Demo
+
+You can view and interact with a live deployment of Espresso at the following URL: 
+
+[Espresso - Daily Digest App](https://digest.streamlit.app/)
+
+Simply enter your OpenAI and Metaphor API keys, and then provide your list of desired topics to start receiving your personalized digest. Enjoy Espresso shots of brief, recent news, and information tailor-made for you.
+
 
 ## Installation
 
