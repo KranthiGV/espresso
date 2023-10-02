@@ -17,7 +17,9 @@ Espresso is an application made to provide a daily digest of your favorite topic
 
 ## Demo
 
-You can view and interact with a live deployment of Espresso at the following URL: 
+https://github.com/KranthiGV/espresso/assets/7046771/b516431d-02cf-44ec-8450-e90f9b7f0373
+
+You can view and interact with a live demo of Espresso at: 
 
 [Espresso - Daily Digest App](https://digest.streamlit.app/)
 
