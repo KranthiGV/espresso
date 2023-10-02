@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from metaphor_python import Metaphor
+import openai
 
 def lastWeekDate():
     today = datetime.now()
@@ -32,6 +33,41 @@ def processRecentURLsForTopic(topic, metaphor_api_key):
     contents = fetchRawContentsForIds(ids, metaphor_api_key)
     return contents
 
-def createDigest(topic, metaphor_api_key):
+def createPromptForSummary(contents):
+    base = f"""
+         Here's HTML extracts of a few webpages. Summarize all the content into a single piece of clear text. Do not talk about summarizing. Do not refer to first, second, third webpages, etc.
+         
+         """
+    for doc in contents:
+        base += f"""
+        Page title: {doc.title}
+        Page content: 
+        {doc.extract}
+        """
+
+    return base
+
+def listSources(contents):
+    base = "### Here are the sources:"
+    for doc in contents:
+        base += f"[{doc.title}]({doc.url})"
+        base += f"""  
+        """
+
+
+    return base
+
+
+def createDigest(topic, metaphor_api_key, openai_api_key):
+    openai.api_key = openai_api_key
     response = processRecentURLsForTopic(topic, metaphor_api_key)
-    return response.contents
+    
+    final_prompt = createPromptForSummary(response.contents)
+
+    completion = openai.ChatCompletion.create(model="gpt-4", messages=[{"role": "user", "content": final_prompt}])
+    
+    summary = completion.choices[0].message.content
+    sources = listSources(response.contents)
+
+    return [summary, sources]
+

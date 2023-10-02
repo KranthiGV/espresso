@@ -16,9 +16,23 @@ if submit_button:
     topics = topics.split(',')
     topics = [topic.strip() for topic in topics]
 
+    digests = []
+    with st.status('🪄Creating digest...', expanded=True) as status:
+        for topic in topics:
+            st.write(f"Creating digest for {topic}...")
+            digests.append(createDigest(topic, metaphor_api_key, openai_api_key))
+        status.update(label="Digest created!", state="complete", expanded=False)
+
+
+
     tabs = st.tabs(topics)
 
+    
     for idx, tab in enumerate(tabs):
         with tab:
-            print(metaphor_api_key)
-            st.write(createDigest(topics[idx], metaphor_api_key))
+            for idx, item in enumerate(digest):
+                if idx == 0:
+                    st.text(item)
+                else:
+                    st.divider()
+                    st.markdown(item)
