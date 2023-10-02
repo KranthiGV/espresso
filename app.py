@@ -4,8 +4,8 @@ from data_handlers import createDigest
 st.title("☕️ Espresso | Daily digest of your favorite topics")
 
 with st.form(key='api_form'):
-   metaphor_api_key = st.text_input(label='Enter metaphor API key:')
-   openai_api_key = st.text_input(label='Enter OpenAI API key:')
+   metaphor_api_key = st.text_input(label='Enter metaphor API key:', type='password')
+   openai_api_key = st.text_input(label='Enter OpenAI API key:', type='password')
    submit_button = st.form_submit_button(label='Update')
 
 with st.form(key='topics'):
@@ -17,11 +17,11 @@ if submit_button:
     topics = [topic.strip() for topic in topics]
 
     digests = []
-    with st.status('🪄Creating digest...', expanded=True) as status:
+    with st.status('🪄Searching the magicland...', expanded=True) as status:
         for topic in topics:
-            st.write(f"Creating digest for {topic}...")
+            st.write(f"Summarize {topic}...")
             digests.append(createDigest(topic, metaphor_api_key, openai_api_key))
-        status.update(label="Digest created!", state="complete", expanded=False)
+        status.update(label="💫Digest created!", state="complete", expanded=False)
 
 
 
@@ -30,9 +30,7 @@ if submit_button:
     
     for idx, tab in enumerate(tabs):
         with tab:
-            for idx, item in enumerate(digest):
-                if idx == 0:
-                    st.text(item)
-                else:
+            for idx, item in enumerate(digests[idx]):
+                if idx != 0:
                     st.divider()
-                    st.markdown(item)
+                st.markdown(item)
