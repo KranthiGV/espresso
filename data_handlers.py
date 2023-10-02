@@ -17,7 +17,7 @@ def fetchRecentURLs(topic, metaphor_api_key):
     """
     metaphor = Metaphor(metaphor_api_key)
     response = metaphor.search(topic,
-                               num_results=4,
+                               num_results=2,
                                use_autoprompt=True,
                                start_published_date=lastWeekDate())
     

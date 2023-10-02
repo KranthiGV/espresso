@@ -3,15 +3,14 @@ from data_handlers import createDigest
 
 st.title("☕️ Espresso | Daily digest of your favorite topics")
 
-# Get API keys from user
-with st.form(key='api_form'):
-   metaphor_api_key = st.text_input(label='Enter metaphor API key:', type='password')
-   openai_api_key = st.text_input(label='Enter OpenAI API key:', type='password')
-   submit_button = st.form_submit_button(label='Update')
-
 # Get topics from user
 with st.form(key='topics'):
     topics = st.text_input(label='What topics do you want digests for? (comma separated):')
+
+    # Get API keys from user
+    metaphor_api_key = st.text_input(label='Enter metaphor API key:', type='password')
+    openai_api_key = st.text_input(label='Enter OpenAI API key:', type='password')
+
     submit_button = st.form_submit_button(label='Create digests')
 
 if submit_button:
