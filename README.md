@@ -1,5 +1,5 @@
 # ☕️ Espresso - Daily Digest App
-[Live Demo](https://digest.streamlit.app/)
+[[Live Demo](https://digest.streamlit.app/)] [[Video Demo](https://youtu.be/W_1xlZIuibg)]
 
 Espresso is an application made to provide a daily digest of your favorite topics. This app uses the power of OpenAI and Metaphor APIs to fetch, process, and summarize the latest information on a list of topics provided by the user.
 
@@ -17,8 +17,7 @@ Espresso is an application made to provide a daily digest of your favorite topic
 
 ## Demo
 
-https://github.com/KranthiGV/espresso/assets/7046771/882a2f5f-eeca-48c5-ac7d-81c63eb4ea33
-
+Link to [[Video Demo](https://youtu.be/W_1xlZIuibg)]
 
 You can view and interact with a live demo of Espresso at: 
 
