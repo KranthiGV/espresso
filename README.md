@@ -17,7 +17,8 @@ Espresso is an application made to provide a daily digest of your favorite topic
 
 ## Demo
 
-https://github.com/KranthiGV/espresso/assets/7046771/b516431d-02cf-44ec-8450-e90f9b7f0373
+https://github.com/KranthiGV/espresso/assets/7046771/882a2f5f-eeca-48c5-ac7d-81c63eb4ea33
+
 
 You can view and interact with a live demo of Espresso at: 
 
